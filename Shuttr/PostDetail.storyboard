@@ -101,7 +101,7 @@
                                     <constraint firstAttribute="height" constant="34" id="yGK-Qj-Hld"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" red="0.92941176469999998" green="0.1058823529" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="default">
@@ -123,9 +123,6 @@
                                 <state key="normal" backgroundImage="add_comment">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="240" y="545" width="140" height="35"/>
-                                </variation>
                                 <connections>
                                     <action selector="onAddCommentButtonPressed:" destination="QLu-L0-WoQ" eventType="touchUpInside" id="the-Lz-J77"/>
                                 </connections>
@@ -182,8 +179,7 @@
                                                             <exclude reference="l7j-v6-FVZ"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="16" y="20" width="174" height="13"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <exclude reference="e3u-Nr-yL6"/>
                                                             <exclude reference="l7j-v6-FVZ"/>
@@ -229,8 +225,7 @@
                                                             <exclude reference="VmC-sa-J5i"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="198" y="18" width="34" height="21"/>
+                                                    <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="0eq-bd-MoW"/>
                                                             <include reference="VmC-sa-J5i"/>
@@ -296,46 +291,11 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="408" width="360" height="129"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="QLu-L0-WoQ" id="6jL-An-G4h"/>
                                     <outlet property="delegate" destination="QLu-L0-WoQ" id="Q7D-xU-tHG"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4U-e0-88N">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="NyG-aM-VGO"/>
-                                </constraints>
-                                <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.92941176469999998" green="0.1058823529" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="Title" id="lj7-uE-L2A">
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="ULE-D1-ZrL">
-                                            <connections>
-                                                <action selector="onDoneButtonPressed:" destination="QLu-L0-WoQ" id="ARf-3c-1x6"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="NyG-aM-VGO"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="NyG-aM-VGO"/>
-                                    </mask>
-                                </variation>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVf-Wn-k0s">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
@@ -363,6 +323,38 @@
                                     <action selector="onHeartButtonPressed:" destination="QLu-L0-WoQ" eventType="touchUpInside" id="goC-FB-Rep"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4U-e0-88N">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="NyG-aM-VGO"/>
+                                </constraints>
+                                <color key="tintColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Title" id="lj7-uE-L2A">
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="ULE-D1-ZrL">
+                                            <connections>
+                                                <action selector="onDoneButtonPressed:" destination="QLu-L0-WoQ" id="ARf-3c-1x6"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="NyG-aM-VGO"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="NyG-aM-VGO"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -397,8 +389,8 @@
                                 <exclude reference="fkZ-cx-cfB"/>
                                 <exclude reference="xXx-pG-w4X"/>
                                 <exclude reference="m9L-s4-oD4"/>
-                                <exclude reference="e4U-e0-88N"/>
                                 <exclude reference="RVf-Wn-k0s"/>
+                                <exclude reference="e4U-e0-88N"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="a3s-uf-RRs"/>
@@ -432,8 +424,8 @@
                                 <include reference="fkZ-cx-cfB"/>
                                 <include reference="xXx-pG-w4X"/>
                                 <include reference="m9L-s4-oD4"/>
-                                <include reference="e4U-e0-88N"/>
                                 <include reference="RVf-Wn-k0s"/>
+                                <include reference="e4U-e0-88N"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="a3s-uf-RRs"/>

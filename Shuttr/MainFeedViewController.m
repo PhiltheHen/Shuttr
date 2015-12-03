@@ -41,7 +41,6 @@
     self.somethingChanged = NO;
 
     [self.tabBarItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    [self setNeedsStatusBarAppearanceUpdate];
     self.imageB = [NSMutableArray new];
 
     for (int i = 1; i <37; i++) {
@@ -239,9 +238,9 @@
 
 
         if ([self.likesArray[indexPath.section] isEqual:@1]) {
-            [footerView.likeButton setBackgroundImage:[UIImage imageNamed:@"heart-on"] forState:UIControlStateNormal];
+            [footerView.likeButton setBackgroundImage:[UIImage imageNamed:@"heart_on"] forState:UIControlStateNormal];
         } else if ([self.likesArray[indexPath.section] isEqual:@0]){
-            [footerView.likeButton setBackgroundImage:[UIImage imageNamed:@"semi-heart-on"] forState:UIControlStateNormal];
+            [footerView.likeButton setBackgroundImage:[UIImage imageNamed:@"heart_off"] forState:UIControlStateNormal];
         }
 
         return footerView;
@@ -356,12 +355,12 @@
         if ([[self.likesArray objectAtIndex:indexPath.section] isEqual:@1]){
             [tempLikesArray setObject:@0 atIndexedSubscript:indexPath.section];
             self.likesArray = [NSArray arrayWithArray:tempLikesArray];
-            [sender setBackgroundImage:[UIImage imageNamed:@"semi-heart-on"] forState:UIControlStateNormal];
+            [sender setBackgroundImage:[UIImage imageNamed:@"heart_off"] forState:UIControlStateNormal];
 
         } else {
             [tempLikesArray setObject:@1 atIndexedSubscript:indexPath.section];
             self.likesArray = [NSArray arrayWithArray:tempLikesArray];
-            [sender setBackgroundImage:[UIImage imageNamed:@"heart-on"] forState:UIControlStateNormal];
+            [sender setBackgroundImage:[UIImage imageNamed:@"heart_on"] forState:UIControlStateNormal];
 
         }
     });

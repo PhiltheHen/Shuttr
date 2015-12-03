@@ -344,6 +344,7 @@
 		47A4A8B31BD9CFFB006091DA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				47A4A86B1BD9CF19006091DA /* LaunchScreen.storyboard */,
 				3AA3745E1BDDDB6300CDAF74 /* SignupSignin.storyboard */,
 				47A4A8661BD9CF19006091DA /* Main.storyboard */,
 				3ACF11D01BDB3BE000EDBF4B /* Search.storyboard */,
@@ -351,7 +352,6 @@
 				3A74834E1BDC9A0F00484FED /* PostDetail.storyboard */,
 				658E324E1BD9DCC200314027 /* Camera.storyboard */,
 				658E32511BD9DCDE00314027 /* Post.storyboard */,
-				47A4A86B1BD9CF19006091DA /* LaunchScreen.storyboard */,
 				475A38541BE3052200991F7D /* FeedContainerCellView.xib */,
 				475A38561BE3056000991F7D /* FeedPhotoCollectionViewCell.xib */,
 				3AA3745A1BDDBD5800CDAF74 /* FeedTableFooterCellView.xib */,

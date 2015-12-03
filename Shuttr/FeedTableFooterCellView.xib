@@ -39,7 +39,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="34" id="L5d-HJ-o1J"/>
                             </constraints>
-                            <state key="normal" backgroundImage="semi-heart-on"/>
+                            <state key="normal" backgroundImage="heart_off"/>
                             <connections>
                                 <action selector="onLikeButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="gUL-1H-1eh"/>
                             </connections>
@@ -74,7 +74,7 @@
                                 <constraint firstAttribute="width" constant="49" id="T0m-wC-u0d"/>
                                 <constraint firstAttribute="height" constant="18" id="qs0-pZ-D2s"/>
                             </constraints>
-                            <state key="normal" image="ellipsis_red"/>
+                            <state key="normal" image="ellipsis_dark"/>
                             <connections>
                                 <action selector="onMoreButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="OCf-DO-rCs"/>
                             </connections>
@@ -115,7 +115,7 @@
         </view>
     </objects>
     <resources>
-        <image name="ellipsis_red" width="41" height="11"/>
-        <image name="semi-heart-on" width="64" height="64"/>
+        <image name="ellipsis_dark" width="39" height="9"/>
+        <image name="heart_off" width="61" height="58"/>
     </resources>
 </document>

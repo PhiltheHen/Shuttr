@@ -50,7 +50,7 @@
 }
 
 #pragma mark - IBActions
-- (IBAction)onPostButtonPressed:(UIButton *)sender {
+- (IBAction)onPostButtonPressed:(UIBarButtonItem *)sender {
     sender.enabled = NO;
     // Uncomment to save photos to user's photo library
 //    for (UIImage *image in self.images) {
@@ -122,7 +122,7 @@
 
 }
 
-- (IBAction)onCancelButtonPressed:(UIButton *)sender {
+- (IBAction)onCancelButtonPressed:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

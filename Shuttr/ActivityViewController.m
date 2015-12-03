@@ -65,7 +65,6 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Activity *activity = [self.activityItems objectAtIndex:indexPath.row];
     ActivityFeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityCell"];
-    cell.activityItemTextLabel.textColor = UIColorFromRGB(0xD9A39A);
     if ([activity.activityType isEqual:@0]){
 
         if ([activity.fromUser isEqual:[User currentUser]]){

@@ -54,9 +54,9 @@
     
     // Add a custom login button to your app
     UIButton *myLoginButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    myLoginButton.backgroundColor= UIColorFromRGB(0xD9A39A);
+    myLoginButton.backgroundColor= UIColorFromRGB(0x4A4A4A);
     myLoginButton.frame=CGRectMake(0,0,159,40);
-    [myLoginButton setTitleColor:UIColorFromRGB(0x423C45) forState:UIControlStateNormal];
+    [myLoginButton setTitleColor:UIColorFromRGB(0xFBF5AF) forState:UIControlStateNormal];
     myLoginButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17];
     myLoginButton.layer.cornerRadius = 4;
     myLoginButton.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height-100);
@@ -64,8 +64,8 @@
 
     UIButton *twitterLoginButton=[UIButton buttonWithType:UIButtonTypeCustom];
     twitterLoginButton.layer.cornerRadius = 4;
-    twitterLoginButton.backgroundColor=UIColorFromRGB(0xD9A39A);
-    [twitterLoginButton setTitleColor:UIColorFromRGB(0x423C45) forState:UIControlStateNormal];
+    twitterLoginButton.backgroundColor=UIColorFromRGB(0x4A4A4A);
+    [twitterLoginButton setTitleColor:UIColorFromRGB(0xFBF5AF) forState:UIControlStateNormal];
     twitterLoginButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17];
     twitterLoginButton.frame=CGRectMake(0,0,159,40);
     twitterLoginButton.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height-40);
@@ -108,12 +108,12 @@
 #pragma  mark textfield animation
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     
-    self.logoImageView.animationImages = self.imageB;
-    self.logoImageView.animationDuration = 1.5;
-    self.logoImageView.animationRepeatCount = 0;
-    [self.logoImageView startAnimating];
-    [self.usernameTextField endEditing:NO];
-    [self.passwordTextField endEditing:NO];
+//    self.logoImageView.animationImages = self.imageB;
+//    self.logoImageView.animationDuration = 1.5;
+//    self.logoImageView.animationRepeatCount = 0;
+//    [self.logoImageView startAnimating];
+//    [self.usernameTextField endEditing:NO];
+//    [self.passwordTextField endEditing:NO];
     return YES;
 }
 
@@ -129,7 +129,7 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.usernameTextField endEditing:NO];
     [self.passwordTextField endEditing:NO];
-    [self.logoImageView stopAnimating];
+    //[self.logoImageView stopAnimating];
 }
 
 #warning does not work - must authenticate json request

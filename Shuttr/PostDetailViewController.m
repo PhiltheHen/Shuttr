@@ -37,8 +37,7 @@
     [self updateComments];
     self.navBar.topItem.title =[NSString stringWithFormat:@"%@'s Post", self.post.author.username];
     self.commentTableView.tableFooterView = [UIView new];
-    [self.commentTableView setSeparatorColor:UIColorFromRGB(0x332E35)];
-    self.descriptionTextView.textColor = UIColorFromRGB(0xD9A39A);
+    [self.commentTableView setSeparatorColor:UIColorFromRGB(0x4A4A4A)];
     self.isLiked = NO;
     self.somethingChanged = NO;
 
@@ -49,10 +48,10 @@
     [likeQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
 
         if (objects.count > 0){
-            [self.heartButton setImage:[UIImage imageNamed:@"heart-on"] forState:UIControlStateNormal];
+            [self.heartButton setImage:[UIImage imageNamed:@"heart_on"] forState:UIControlStateNormal];
             self.isLiked = YES;
         } else {
-            [self.heartButton setImage:[UIImage imageNamed:@"semi-heart-on"] forState:UIControlStateNormal];
+            [self.heartButton setImage:[UIImage imageNamed:@"heart_off"] forState:UIControlStateNormal];
             self.isLiked = NO;
         }
     }];
@@ -250,11 +249,11 @@
     dispatch_async(dispatch_get_main_queue(), ^{
 
         if (self.isLiked){
-            [sender setImage:[UIImage imageNamed:@"semi-heart-on"] forState:UIControlStateNormal];
+            [sender setImage:[UIImage imageNamed:@"heart_off"] forState:UIControlStateNormal];
             self.isLiked = NO;
 
         } else {
-            [sender setImage:[UIImage imageNamed:@"heart-on"] forState:UIControlStateNormal];
+            [sender setImage:[UIImage imageNamed:@"heart_on"] forState:UIControlStateNormal];
             self.isLiked = YES;
         }
         [sender setNeedsLayout];

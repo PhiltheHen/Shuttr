@@ -14,6 +14,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <ParseFacebookUtilsV4/ParseFacebookUtilsV4.h>
 #import <ParseTwitterUtils/ParseTwitterUtils.h>
+#import "SVProgressHUD.h"
 
 @interface AppDelegate ()
 
@@ -27,8 +28,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
 
+    // Configure UI elements
     [[UITabBar appearance] setTintColor:UIColorFromRGB(0xFBF5AF)];
-    [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0x9B9B9B)];
+    [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0xD8D8D8)];
+
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+    [SVProgressHUD setBackgroundColor:UIColorFromRGB(0x4A4A4A)];
+    [SVProgressHUD setForegroundColor:UIColorFromRGB(0xFBF5AF)];
 
     //[[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];

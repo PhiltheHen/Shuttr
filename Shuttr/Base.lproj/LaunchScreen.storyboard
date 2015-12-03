@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login_Shutter" translatesAutoresizingMaskIntoConstraints="NO" id="Tnx-O7-kVj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_dark" translatesAutoresizingMaskIntoConstraints="NO" id="Tnx-O7-kVj">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <constraints>
@@ -39,37 +39,17 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shuttr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbn-xV-N3B">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="NRz-I6-BO4">
-                                        <variation key="widthClass=compact" constant="28"/>
-                                    </constraint>
-                                    <constraint firstAttribute="width" constant="48" id="QdP-wQ-aql">
-                                        <variation key="widthClass=compact" constant="61"/>
-                                    </constraint>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="33"/>
                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="NRz-I6-BO4"/>
-                                        <exclude reference="QdP-wQ-aql"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="NRz-I6-BO4"/>
-                                        <include reference="QdP-wQ-aql"/>
-                                    </mask>
-                                </variation>
                             </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Tnx-O7-kVj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="GHA-3k-j8Z"/>
-                            <constraint firstItem="Fbn-xV-N3B" firstAttribute="top" secondItem="Tnx-O7-kVj" secondAttribute="bottom" constant="8" id="auQ-N8-Jb1"/>
-                            <constraint firstItem="Fbn-xV-N3B" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gbs-AS-j1A"/>
+                            <constraint firstItem="Fbn-xV-N3B" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="V6O-b7-Src"/>
+                            <constraint firstItem="Tnx-O7-kVj" firstAttribute="top" secondItem="Fbn-xV-N3B" secondAttribute="bottom" constant="24" id="ooB-5w-LDm"/>
                             <constraint firstItem="Tnx-O7-kVj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uHy-zG-jq3"/>
                         </constraints>
                         <variation key="default">
@@ -78,9 +58,9 @@
                                 <exclude reference="Fbn-xV-N3B"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="auQ-N8-Jb1"/>
-                                <exclude reference="gbs-AS-j1A"/>
+                                <exclude reference="V6O-b7-Src"/>
                                 <exclude reference="GHA-3k-j8Z"/>
+                                <exclude reference="ooB-5w-LDm"/>
                                 <exclude reference="uHy-zG-jq3"/>
                             </mask>
                         </variation>
@@ -90,9 +70,9 @@
                                 <include reference="Fbn-xV-N3B"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="auQ-N8-Jb1"/>
-                                <include reference="gbs-AS-j1A"/>
+                                <include reference="V6O-b7-Src"/>
                                 <include reference="GHA-3k-j8Z"/>
+                                <include reference="ooB-5w-LDm"/>
                                 <include reference="uHy-zG-jq3"/>
                             </mask>
                         </variation>
@@ -153,5 +133,6 @@
     </scenes>
     <resources>
         <image name="Login_Shutter" width="510" height="500"/>
+        <image name="logo_dark" width="182" height="181"/>
     </resources>
 </document>

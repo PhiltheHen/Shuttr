@@ -9,64 +9,39 @@
 #import "CameraViewController.h"
 #import "PostPhotosViewController.h"
 #import "UIImage+ImageResizing.h"
+
 @interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, PostPhotosDelegate>{
-   
+
     AVCaptureSession * session;
     AVCaptureStillImageOutput *stillImageOutput;
     SystemSoundID soundID;
     BOOL flashlightOn;
- 
+
 }
 
-//@property (weak, nonatomic) IBOutlet UIButton *skip;
-//@property (weak, nonatomic) IBOutlet UIImageView *wheelImageView;
-
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
-
-//@property (strong, nonatomic) IBOutlet UIImageView *imageView;
-
-- (IBAction)takePhoto:  (UIButton *)sender;
-//- (IBAction)selectPhoto:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *shutterImageView;
 
 @property (nonatomic)NSArray *shutterImageArray;
 @property NSMutableArray * photoArray;
-
 @property (nonatomic)NSMutableArray * photoImageArrayB;
-
 @property int imageCount;
 
-@property (weak, nonatomic) IBOutlet UIImageView *shutterImageView;
-
 @end
-
-
-
 
 @implementation CameraViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //music url
-    
+
+    // Load sound effect
     NSURL *musicUrl=[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"shutterSoundEffect" ofType:@"mp3"]];
-    
+
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)   musicUrl, &soundID);
-    
-//     self.photoImageArrayB = [NSMutableArray new];
-//    for (int i = 1; i <79; i++) {
-//        
-//        NSString *imageName = [NSString stringWithFormat:@"lauch%d",i];
-//        
-//        [self.photoImageArrayB addObject:[UIImage imageNamed:imageName]];
-//        
-//    }
-//    
-    
-  
-    
-    // shutter image sequence
+
+    // Add shutter images for animation
     self.shutterImageArray = [NSArray arrayWithObjects: [UIImage imageNamed:@"shutter1"],
-  [UIImage imageNamed:@"shutter2"],
+                              [UIImage imageNamed:@"shutter2"],
                               [UIImage imageNamed:@"shutter3"],
                               [UIImage imageNamed:@"shutter4"],
                               [UIImage imageNamed:@"shutter5"],
@@ -77,81 +52,79 @@
                               [UIImage imageNamed:@"shutter10"],
                               [UIImage imageNamed:@"shutter11"],
                               [UIImage imageNamed:@"shutter12"],
-                              
                               [UIImage imageNamed:@"shutter13"],nil];
-    
-    self.imageCount =4;
-    
-   
- 
-    
-    //instantiate array
+
+    // TODO: make this a const
+    self.imageCount = 4;
+
     self.photoArray = [NSMutableArray new];
-    
- //AVCaptureSession preset
+
+    // AVCaptureSession Preset
     session = [AVCaptureSession new];
     [session setSessionPreset:AVCaptureSessionPresetPhoto];
-    
+
     AVCaptureDevice *inputDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    NSError*error;
+
+    NSError *error;
+
     AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:inputDevice error:&error];
-    
+
     if ([session canAddInput:deviceInput]) {
         [session addInput:deviceInput];
-        
     }
-    
-    AVCaptureVideoPreviewLayer * previewLayer = [[AVCaptureVideoPreviewLayer alloc]initWithSession:session];
+
+    // Display preview layer and fill up screen
+    AVCaptureVideoPreviewLayer * previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
     [previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-    
+
     CALayer *rootLayer = [[self view]layer];
     [rootLayer setMasksToBounds:YES];
     CGRect frame = self.view.frame;
     [previewLayer setFrame:frame];
-    
+
     [rootLayer insertSublayer:previewLayer atIndex:0];
-    
-    
+
+    // Configure settings
     stillImageOutput = [AVCaptureStillImageOutput new];
     NSDictionary *outputSetting  = [[NSDictionary alloc]initWithObjectsAndKeys:AVVideoCodecJPEG,AVVideoCodecKey, nil];
     [stillImageOutput setOutputSettings:outputSetting];
-    
+
     [session addOutput:stillImageOutput];
     [session startRunning];
- 
-    
+
+
 }
-//keep orientation portait
+ // Keep orientation portait
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    
+
     // Use this to allow upside down as well
     //return (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
 }
 
 
-- (IBAction)skipButton:(UIButton *)sender {
-    
+// No longer have a skip button
 
-    
-    if (self.photoArray.count == 0) {
-        
-        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Message" message:@"Need at least one image taken" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil];
-        
-        [alert addAction:action];
-        
-        [self presentViewController:alert animated:YES completion:nil];
-        
-    }
-    else{
-    [self performSegueWithIdentifier:@"ToPostSegue" sender:self];
-    self.photoArray = [NSMutableArray new];
-    }
-
-}
+//- (IBAction)skipButton:(UIButton *)sender {
+//
+//    if (self.photoArray.count == 0) {
+//
+//        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Message" message:@"Need at least one image taken" preferredStyle:UIAlertControllerStyleAlert];
+//
+//        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil];
+//
+//        [alert addAction:action];
+//
+//        [self presentViewController:alert animated:YES completion:nil];
+//
+//    }
+//    else{
+//        [self performSegueWithIdentifier:@"ToPostSegue" sender:self];
+//        self.photoArray = [NSMutableArray new];
+//    }
+//
+//}
 
 #pragma mark resize Images
 
@@ -162,7 +135,7 @@
 //    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
 //    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
 //    UIGraphicsEndImageContext();
-//    
+//
 //    return newImage;
 //}
 
@@ -171,72 +144,61 @@
 
 #pragma mark takePhoto
 - (IBAction)takePhoto:(UIButton *)sender {
-    
-    
+
+
     AVCaptureConnection *videoConnection = nil;
-    for (AVCaptureConnection *connection in stillImageOutput.connections)
-    {
-        for (AVCaptureInputPort *port in [connection inputPorts])
-        {
-            if ([[port mediaType] isEqual:AVMediaTypeVideo] )
-            {
+
+    for (AVCaptureConnection *connection in stillImageOutput.connections) {
+        for (AVCaptureInputPort *port in [connection inputPorts]) {
+            if ([[port mediaType] isEqual:AVMediaTypeVideo] ) {
                 videoConnection = connection;
                 break;
             }
         }
-        if (videoConnection) { break;
+        if (videoConnection) {
+            break;
         }
     }
-    
+
     NSLog(@"about to request a capture from: %@", stillImageOutput);
+
     [stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection
-                                                  completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error)
-     {
-         
-         if (imageSampleBuffer !=NULL)
-         {
+                                                  completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error) {
+
+         if (imageSampleBuffer !=NULL) {
              NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
              UIImage *image = [[UIImage alloc] initWithData:imageData];
-//             self.imageView.image = image;
-             
-             //resize image
+
+             // Resize image
              CGSize imageSize = CGSizeMake(400, 400);
              UIImage *newImage = [UIImage imageWithImage:image scaledToSize:imageSize];
-             
-             
-             [self.photoArray addObject: newImage];
-              //save image to photosAlbum
-//             UIImageWriteToSavedPhotosAlbum (self.imageView.image, nil, nil , nil);
-             
-             //segue when image reaches to 10
-             if (self.photoArray.count == self.imageCount) {
-           
-             [self performSegueWithIdentifier:@"ToPostSegue" sender:self];
-                    self.photoArray = [NSMutableArray new];
-              self.countLabel.text = [NSString stringWithFormat:@"Photos remaining: 0" ];
-             
 
+             [self.photoArray addObject: newImage];
+
+             // Save image to Photos Album?
+             // UIImageWriteToSavedPhotosAlbum (self.imageView.image, nil, nil , nil);
+
+             // Segue when roll is complete
+             if (self.photoArray.count == self.imageCount) {
+
+                 [self performSegueWithIdentifier:@"ToPostSegue" sender:self];
+                 self.photoArray = [NSMutableArray new];
+                 self.countLabel.text = [NSString stringWithFormat:@"Photos remaining: 0" ];
              }
-          }
-      }];
-    
+         }
+     }];
+
     self.countLabel.text = [NSString stringWithFormat:@"Photos remaining: %lu",self.imageCount -(unsigned long)self.photoArray.count-1];
-    //animate shutter
-    
-    
-//    self.shutterImageView.animationImages = self.photoImageArrayB;
-    
+
+    // Animate shutter
     self.shutterImageView.animationImages = self.shutterImageArray;
     self.shutterImageView.animationDuration = 1;
     self.shutterImageView.animationRepeatCount = 1;
     [self.shutterImageView startAnimating];
-    
-    
-    
-    
-    
-    //flash
-    
+
+
+    // Messing around with the flash to mimic disposable camera quirks
+
     //    if (flashlightOn == NO)
     //    {   [self toggleFlashlight];
     //        flashlightOn = YES;
@@ -248,69 +210,66 @@
     //
     //        [self toggleFlashlight];
     //    }
-    //    
+    //
     //    [self toggleFlashlight];
     //soundeffect
-    
-//        AudioServicesPlaySystemSound(soundID);
+
+    //        AudioServicesPlaySystemSound(soundID);
 }
 
 #pragma mark selectPhoto
 
 - (IBAction)selectPhoto:(UIButton *)sender {
-    
+
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:picker animated:YES completion:NULL];
-    
+
 }
 
 - (BOOL)canBecomeFirstResponder {
     return YES;
 }
 
-
 #pragma mark flashOnOff switch
 
 - (void) toggleFlashlight  {
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
-    if (device.torchMode == AVCaptureTorchModeOff)
-    {
+
+    if (device.torchMode == AVCaptureTorchModeOff) {
         // Create an AV session
         AVCaptureSession *sessions = [[AVCaptureSession alloc] init];
-        
+
         // Create device input and add to current session
         AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error: nil];
         [sessions addInput:input];
-        
+
         // Create video output and add to current session
         AVCaptureVideoDataOutput *output = [[AVCaptureVideoDataOutput alloc] init];
         [sessions addOutput:output];
-        
+
         // Start session configuration
         [sessions beginConfiguration];
         [device lockForConfiguration:nil];
-        
+
         // Set torch to on
         [device setTorchMode:AVCaptureTorchModeOn];
-        
+
         [device unlockForConfiguration];
         [sessions commitConfiguration];
-        
+
         // Start the session
         [sessions startRunning];
-        
+
         // Keep the session around
         session = sessions;
-      
+
     }
-    else
-    {
+    else {
         [session stopRunning];
-        
+
     }
 }
 
@@ -320,18 +279,18 @@
 #pragma mark picker delegate method
 
 //- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-//   
+//
 //    UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
 //    [self.photoManager pinInBackground];
 //    self.imageView.image = editedImage;
 //   //save to photo album
 //    UIImageWriteToSavedPhotosAlbum (editedImage, nil, nil , nil);
 //    [picker dismissViewControllerAnimated:YES completion:NULL];
-//    
+//
 //}
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
+
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -342,7 +301,7 @@
 }
 
 #pragma mark segue
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     PostPhotosViewController * postPhotoViewcontroller = segue.destinationViewController;
     postPhotoViewcontroller.images = self.photoArray;

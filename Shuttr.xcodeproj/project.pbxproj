@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A2277DE1BE06FFF00B05BFA /* CustomMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2277DD1BE06FFF00B05BFA /* CustomMovieView.m */; };
+		3A47B5001C14BE25005E210D /* FeedCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A47B4FF1C14BE25005E210D /* FeedCollectionViewFlowLayout.m */; };
 		3A74833C1BDC7F3A00484FED /* FeedTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74833B1BDC7F3A00484FED /* FeedTableHeaderView.m */; };
 		3A7483491BDC8ABF00484FED /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74833F1BDC8ABE00484FED /* SVIndefiniteAnimatedView.m */; };
 		3A74834A1BDC8ABF00484FED /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A7483411BDC8ABE00484FED /* SVProgressHUD.bundle */; };
@@ -84,6 +85,8 @@
 /* Begin PBXFileReference section */
 		3A2277DC1BE06FFF00B05BFA /* CustomMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMovieView.h; sourceTree = "<group>"; };
 		3A2277DD1BE06FFF00B05BFA /* CustomMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMovieView.m; sourceTree = "<group>"; };
+		3A47B4FE1C14BE25005E210D /* FeedCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		3A47B4FF1C14BE25005E210D /* FeedCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		3A74833A1BDC7F3A00484FED /* FeedTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableHeaderView.h; sourceTree = "<group>"; };
 		3A74833B1BDC7F3A00484FED /* FeedTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableHeaderView.m; sourceTree = "<group>"; };
 		3A74833E1BDC8ABE00484FED /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
@@ -357,6 +360,8 @@
 				3AA3745A1BDDBD5800CDAF74 /* FeedTableFooterCellView.xib */,
 				3AA3745B1BDDBD5800CDAF74 /* FeedTableHeaderView.xib */,
 				475A38481BE2812400991F7D /* RefreshControlView.xib */,
+				3A47B4FE1C14BE25005E210D /* FeedCollectionViewFlowLayout.h */,
+				3A47B4FF1C14BE25005E210D /* FeedCollectionViewFlowLayout.m */,
 				47A4A9371BDB63A4006091DA /* FeedContainerCellView.h */,
 				47A4A9381BDB63A4006091DA /* FeedContainerCellView.m */,
 				47A4A93E1BDB68FA006091DA /* FeedPhotoCollectionViewCell.h */,
@@ -531,6 +536,7 @@
 				658E32401BD9D92300314027 /* CameraViewController.m in Sources */,
 				3ACF11691BD9FB8500EDBF4B /* User.m in Sources */,
 				47A4A85F1BD9CF19006091DA /* main.m in Sources */,
+				3A47B5001C14BE25005E210D /* FeedCollectionViewFlowLayout.m in Sources */,
 				3A7483491BDC8ABF00484FED /* SVIndefiniteAnimatedView.m in Sources */,
 				475A384C1BE286F300991F7D /* RefreshControlView.m in Sources */,
 				3A74834B1BDC8ABF00484FED /* SVProgressHUD.m in Sources */,

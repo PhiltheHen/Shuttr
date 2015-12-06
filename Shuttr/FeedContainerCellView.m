@@ -8,6 +8,7 @@
 
 #import "FeedContainerCellView.h"
 #import "FeedPhotoCollectionViewCell.h"
+#import "FeedCollectionViewFlowLayout.h"
 
 @interface FeedContainerCellView () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -28,10 +29,10 @@
 
     self.collectionData = [NSArray new];
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    FeedCollectionViewFlowLayout *flowLayout = [[FeedCollectionViewFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
 #warning adjust the photosizes here
-    flowLayout.itemSize = CGSizeMake(400.0, 400.0);
+    //flowLayout.itemSize = CGSizeMake(400.0, 400.0);
     [self.collectionView setCollectionViewLayout:flowLayout];
 
 #warning update this to the custom collection view cell

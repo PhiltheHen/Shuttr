@@ -9,6 +9,7 @@
 #import "FeedContainerCellView.h"
 #import "FeedPhotoCollectionViewCell.h"
 #import "FeedCollectionViewFlowLayout.h"
+#import "User.h"
 
 @interface FeedContainerCellView () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -28,11 +29,9 @@
 - (void)awakeFromNib {
 
     self.collectionData = [NSArray new];
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = UIColorFromRGB(0x4A4A4A);
+
     FeedCollectionViewFlowLayout *flowLayout = [[FeedCollectionViewFlowLayout alloc] init];
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-#warning adjust the photosizes here
-    //flowLayout.itemSize = CGSizeMake(400.0, 400.0);
     [self.collectionView setCollectionViewLayout:flowLayout];
 
 #warning update this to the custom collection view cell

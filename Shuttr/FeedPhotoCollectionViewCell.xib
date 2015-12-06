@@ -14,22 +14,34 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cxy-1n-UGB">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                        <rect key="frame" x="-3" y="0.0" width="406" height="400"/>
                         <animations/>
+                        <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="405" id="1I0-DS-Zw5"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Cxy-1n-UGB" firstAttribute="leading" secondItem="uAS-Yh-m3s" secondAttribute="leading" id="27x-zT-cNa"/>
                 <constraint firstAttribute="bottom" secondItem="Cxy-1n-UGB" secondAttribute="bottom" id="PY8-Sy-G8y"/>
                 <constraint firstItem="Cxy-1n-UGB" firstAttribute="top" secondItem="uAS-Yh-m3s" secondAttribute="top" id="aQ5-S3-Iaf"/>
                 <constraint firstAttribute="trailing" secondItem="Cxy-1n-UGB" secondAttribute="trailing" id="q8X-SU-gjX"/>
+                <constraint firstItem="Cxy-1n-UGB" firstAttribute="centerX" secondItem="uAS-Yh-m3s" secondAttribute="centerX" id="viF-P8-oLT"/>
+                <constraint firstItem="Cxy-1n-UGB" firstAttribute="centerY" secondItem="uAS-Yh-m3s" secondAttribute="centerY" id="voh-N2-rLo"/>
             </constraints>
             <size key="customSize" width="263" height="308"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="27x-zT-cNa"/>
+                    <exclude reference="q8X-SU-gjX"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="feedPhoto" destination="Cxy-1n-UGB" id="QnE-o1-DTk"/>
             </connections>

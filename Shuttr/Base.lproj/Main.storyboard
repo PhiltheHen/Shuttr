@@ -94,6 +94,7 @@
                                                 </label>
                                             </subviews>
                                             <animations/>
+                                            <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="nTp-YF-vHx" secondAttribute="bottom" constant="4" id="H4I-bu-IQT"/>
                                                 <constraint firstItem="nTp-YF-vHx" firstAttribute="leading" secondItem="Cim-lo-yqH" secondAttribute="leadingMargin" constant="7" id="OPq-JZ-zFV"/>
